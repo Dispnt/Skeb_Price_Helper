@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Skeb Price Helper Test
+// @name         Skeb Price Helper
 // @namespace    https://fofu.dispnt.com/
-// @version      0.3.0
+// @version      0.4
 // @description  Get Price info in your Skeb's following creators Page
 // @author       Dispnt
 // @match        https://skeb.jp/*/following_creators*
@@ -26,18 +26,24 @@
                         if (response.status == 200) {
                             let artist_page = new DOMParser().parseFromString(response.responseText, "text/html"); // parse text to html
                             let price = artist_page.getElementsByTagName("td")[3].innerText; // find price label
-                            artist_col.setAttribute("price",price.replace(/[^0-9]/ig,"")); // set price integer to attribute
+                            artist_col.setAttribute("price", price.replace(/[^0-9]/ig, "")); // set price integer to attribute
                             artist_col.getElementsByClassName("subtitle is-7")[0].innerText = price; //set subtitle to price
                         }
                     }
                 });
                 artist_col.getElementsByClassName("subtitle is-7")[0].style.color = "RED"; //set subtitle to red
             }
+            else{
+                artist_col.setAttribute("price",999999)
+            }
         });
     }
 
-    function sortByPrice(){
-        alert("in Process")
+    function sortByPrice() {
+        var artist_div = $('.columns');
+        artist_div.find('.column').sort(function (a, b) {
+            return +a.getAttribute('price') - +b.getAttribute('price');
+        }).appendTo(artist_div);
     }
 
     function createPriceSortLabel() {
@@ -46,7 +52,7 @@
         div.class = "level-item";
         var level = document.getElementsByClassName("level-right")[0];
         level.appendChild(div);
-        div.addEventListener ("click", function() {
+        div.addEventListener("click", function () {
             sortByPrice();
         });
     }

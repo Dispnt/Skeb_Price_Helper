@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Skeb Price Checker
+// @name         Skeb Price Helper
 // @namespace    https://fofu.dispnt.com/
-// @version      0.1
+// @version      0.2
 // @description  Get Price info in your Skeb's following creators Page
 // @author       Dispnt
-// @match        https://skeb.jp/*
+// @match        https://skeb.jp/*/following_creators*
 // @icon         https://www.google.com/s2/favicons?domain=skeb.jp
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
@@ -36,8 +36,8 @@
     setTimeout(function () {
         // createButton();
         getArtistPrice();
-        console.log('🦙 now running... 🦙');
-    }, 1000);
+        console.log('🦙 Skeb Price Helper is now running... 🦙');
+    }, 100);
 
 
 })();

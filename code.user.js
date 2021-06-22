@@ -17,7 +17,7 @@
     function getArtistPrice() {
         var artist_cols = document.getElementsByClassName('column'); // get artist collections
         Array.prototype.forEach.call(artist_cols, function (artist_col) { // forEach
-            if (artist_col.innerText.includes('Seeking')) { // Skip artist isn't seeking
+            if (artist_col.innerText.includes('Seeking')||artist_col.innerText.includes('募集')||artist_col.innerText.includes('모집 중')) { // Skip artist isn't seeking
                 var artist_url = "https://skeb.jp" + artist_col.childNodes[0].getAttribute("href"); //concatenate url
                 GM_xmlhttpRequest({ // get current artist's page
                     method: "GET",

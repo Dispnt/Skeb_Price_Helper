@@ -7,8 +7,4 @@ Get Price info in Skeb's following creators Page
 
 **Screenshots**
 
-<<<<<<< HEAD
 ![Preview](https://cdn.jsdelivr.net/gh/Dispnt/Skeb_Price_Helper/preview.png)
-=======
-![Preview](https://cdn.jsdelivr.net/gh/Dispnt/Skeb_Price_Helper/preview.png)
->>>>>>> 56ad16061fce2eb213f9bbdcdbeec204bca54de9

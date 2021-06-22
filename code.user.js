@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Skeb Price Helper Test
+// @name         Skeb Price Helper
 // @namespace    https://fofu.dispnt.com/
-// @version      0.3.0
+// @version      0.3
 // @description  Get Price info in your Skeb's following creators Page
 // @author       Dispnt
 // @match        https://skeb.jp/*/following_creators*

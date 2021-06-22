@@ -33,8 +33,9 @@
                 });
                 artist_col.getElementsByClassName("subtitle is-7")[0].style.color = "RED"; //set subtitle to red
             }
-            else{
-                artist_col.setAttribute("price",999999)
+            else {
+                artist_col.classList.add("stopping")
+                artist_col.setAttribute("price", 999999);
             }
         });
     }
@@ -46,10 +47,21 @@
         }).appendTo(artist_div);
     }
 
+    function hideNonSeeking() {
+        $("#nonSeeking").change(function () {
+            if($("#nonSeeking").is(':checked')){
+                $(".stopping").hide();
+            }
+            else{
+                $(".stopping").show();
+            }
+        });
+    }
+
     function createPriceSortLabel() {
         var div = document.createElement("div");
-        div.innerHTML = "<a class='is-active' style='color: #473C8B'>*Price*</a>";
-        div.class = "level-item";
+        div.innerHTML = "<a class='is-active' style='background-color: #DCDCDC'>Price</a>";
+        div.className = "level-item";
         var level = document.getElementsByClassName("level-right")[0];
         level.appendChild(div);
         div.addEventListener("click", function () {
@@ -57,11 +69,22 @@
         });
     }
 
-    setTimeout(function () {
+
+    function createHideNonSeekingCheck() {
+        var div = document.createElement("div");
+        div.innerHTML = "<input type='checkbox' id='nonSeeking'>Hide Non Seeking</input>";
+        div.className = "level-item";
+        $(".level-right").prepend(div)
+    }
+
+    $(function () {
         console.log('🦙 Skeb Price Helper is now running... 🦙');
         createPriceSortLabel()
+        createHideNonSeekingCheck()
         getArtistPrice();
-    }, 1000);
+        hideNonSeeking();
 
+
+    })
 
 })();

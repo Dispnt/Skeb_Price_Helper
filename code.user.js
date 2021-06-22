@@ -34,10 +34,10 @@
         });
     }
     setTimeout(function () {
-        // createButton();
-        getArtistPrice();
         console.log('🦙 Skeb Price Helper is now running... 🦙');
-    }, 100);
+        getArtistPrice();
+        
+    }, 1000);
 
 
 })();
